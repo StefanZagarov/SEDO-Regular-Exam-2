@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+    triggers {
+        pollSCM('H/5 * * * *')
+    }
+
     environment {
         DOTNET_ROOT = "${WORKSPACE}/.dotnet"
         PATH = "${WORKSPACE}/.dotnet:${PATH}"
